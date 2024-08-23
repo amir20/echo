@@ -24,7 +24,8 @@ const randomData = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
 
 func main() {
 	random := flag.Bool("r", false, "generate random data")
-	burst := flag.Bool("b", false, "generate large burst of data")
+	burst := flag.Int64("b", -1, "generate large burst of data")
+	sleep := flag.Int64("s", 1, "sleep time")
 	flag.Parse()
 
 	var data []string
@@ -34,21 +35,18 @@ func main() {
 		data = readData()
 	}
 
-	if *burst {
-		for {
-			for i := 0; i < 10; i++ {
-				fmt.Fprintln(os.Stderr, data[rand.Intn(len(data))])
-				time.Sleep(1 * time.Second)
+	if *burst > 0 {
+		go func() {
+			for {
+				time.Sleep(time.Millisecond * time.Duration(*burst))
+				for i := 0; i < 5_000; i++ {
+					fmt.Fprintln(os.Stderr, data[rand.Intn(len(data))])
+				}
 			}
-			for i := 0; i < 10_000; i++ {
-				fmt.Fprintln(os.Stderr, data[rand.Intn(len(data))])
-			}
-		}
-	} else {
-		for {
-			fmt.Fprintln(os.Stderr, data[rand.Intn(len(data))])
-			time.Sleep(1 * time.Second)
-		}
+		}()
 	}
-
+	for {
+		fmt.Fprintln(os.Stderr, data[rand.Intn(len(data))])
+		time.Sleep(time.Millisecond * time.Duration(*sleep))
+	}
 }
