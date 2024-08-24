@@ -1,0 +1,5 @@
+{"level":"info","key":"very long message with keys in json","user":"john smith", "meta":"some other meta data"}
+{"level":"error","key":"very long message with keys in json","user":"john smith", "meta":"some other meta data"}
+{"level":"info","key":"very long message with keys in json","user":"john smith", "meta":"some other meta data"}
+{"level":"info","key":"very long message with keys in json","user":"john smith", "meta":"some other meta data"}
+{"level":"warn","key":"very long message with keys in json","user":"john smith", "meta":"another user"}
