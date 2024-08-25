@@ -26,7 +26,7 @@ func main() {
 	random := flag.Bool("r", false, "generate random data")
 	burst := flag.Int64("b", -1, "generate large burst of data")
 	sleep := flag.Int64("s", 1, "sleep time")
-	shuffle := flag.Bool("s", false, "shuffle data")
+	shuffle := flag.Bool("x", false, "shuffle data")
 	flag.Parse()
 
 	var data []string
