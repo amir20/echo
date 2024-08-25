@@ -1,18 +1,5 @@
-<<<<<<< HEAD
 \e[?1h\e=
 Wed 09:47:38.609\e[0m \e[0m\e[36;1mINF\e[0m (\e[0m 8\e[0m) [\e[0m+\e[0m] \e[0m++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\e[0m
 Wed 17:02:55.703\e[0m \e[0m\e[36;1mINF\e[0m (\e[0m 6\e[0m) [\e[0m_redacted_\e[0m] \e[0m_redacted_ \e[0m\e[_redacted_\e[0m (\e[0m\e[>
 \e[?1h\e=\e[?1h\e=Wed 17:03:45.313\e[0m \e[0m\e[36;1mINF\e[0m (\e[0m30\e[0m) [\e[0m_redacted_\e[0m] \e[0m_redacted_: *\e[0m\e[35m8\e[0m ~\e[0m\e[>
 Wed 17:04:45.315\e[0m \e[0m\e[36;1mINF\e[0m (\e[0m33\e[0m) [\e[0m_redacted_\e[0m] \e[0m_redacted_: *\e[0m\e[35m8\e[0m ~\e[0m\e[35m9\e[0m !\e[0m\e>
-=======
-[info] [debug:AC] message 1 sent
-[info] [debug:AC] message 2 sent
-[info] [debug:AC] message 3 sent
-[info] [debug:AC] message 4 sent
-[info] [debug:AC] message 5 sent
-[info] [debug:AC] message 6 sent
-[info] [debug:AC] message 7 sent
-[info] [debug:AC] message 8 sent
-[info] [debug:AC] message 9 sent
-[info] [debug:AC] message 10 sent
->>>>>>> 4390da6 (shuffle)
