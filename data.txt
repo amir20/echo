@@ -1,5 +1,5 @@
-\e[?1h\e=
-Wed 09:47:38.609\e[0m \e[0m\e[36;1mINF\e[0m (\e[0m 8\e[0m) [\e[0m+\e[0m] \e[0m++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\e[0m
-Wed 17:02:55.703\e[0m \e[0m\e[36;1mINF\e[0m (\e[0m 6\e[0m) [\e[0m_redacted_\e[0m] \e[0m_redacted_ \e[0m\e[_redacted_\e[0m (\e[0m\e[>
-\e[?1h\e=\e[?1h\e=Wed 17:03:45.313\e[0m \e[0m\e[36;1mINF\e[0m (\e[0m30\e[0m) [\e[0m_redacted_\e[0m] \e[0m_redacted_: *\e[0m\e[35m8\e[0m ~\e[0m\e[>
-Wed 17:04:45.315\e[0m \e[0m\e[36;1mINF\e[0m (\e[0m33\e[0m) [\e[0m_redacted_\e[0m] \e[0m_redacted_: *\e[0m\e[35m8\e[0m ~\e[0m\e[35m9\e[0m !\e[0m\e>
+<span>this is a test</span>
+more tests with <span>more spans</span>
+<b>bold text</b>
+example text
+<i>italic text</i>

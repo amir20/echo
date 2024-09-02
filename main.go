@@ -25,7 +25,7 @@ const randomData = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
 func main() {
 	random := flag.Bool("r", false, "generate random data")
 	burst := flag.Int64("b", -1, "generate large burst of data")
-	sleep := flag.Int64("s", 1, "sleep time")
+	sleep := flag.Int64("s", 1000, "sleep time")
 	shuffle := flag.Bool("x", false, "shuffle data")
 	flag.Parse()
 
