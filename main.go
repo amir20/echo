@@ -50,8 +50,9 @@ func main() {
 			}
 		}()
 	}
-	for {
-		fmt.Fprintln(os.Stderr, data[rand.Intn(len(data))])
+
+	for i := 0; ; i = (i + 1) % len(data) {
+		fmt.Fprintln(os.Stderr, data[i])
 		time.Sleep(time.Millisecond * time.Duration(*sleep))
 	}
 }
