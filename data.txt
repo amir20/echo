@@ -1,5 +1,584 @@
-<span>this is a test</span>
-more tests with <span>more spans</span>
-<b>bold text</b>
-example text
-<i>italic text</i>
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.2)
+2024-10-31T21:21:56.545+03:00  INFO 1 --- [torrentsearch] [           main] me.home.torrentsearch.Application        : Starting Application using Java 21 with PID 1 (/app/app.jar started by deployer in /)
+2024-10-31T21:21:56.547+03:00  INFO 1 --- [torrentsearch] [           main] me.home.torrentsearch.Application        : The following 1 profile is active: "prod"
+2024-10-31T21:21:56.637+03:00  INFO 1 --- [torrentsearch] [           main] o.s.c.c.c.ConfigServerConfigDataLoader   : Fetching config from server at : http://10.10.0.9:8765
+2024-10-31T21:21:56.638+03:00  INFO 1 --- [torrentsearch] [           main] o.s.c.c.c.ConfigServerConfigDataLoader   : Located environment: name=torrentsearch, profiles=[default], label=main, version=8b3b885821b14aaeb18214ad75bc20fab0430cb8, state=null
+2024-10-31T21:21:56.638+03:00  INFO 1 --- [torrentsearch] [           main] o.s.c.c.c.ConfigServerConfigDataLoader   : Fetching config from server at : http://10.10.0.9:8765
+2024-10-31T21:21:56.638+03:00  INFO 1 --- [torrentsearch] [           main] o.s.c.c.c.ConfigServerConfigDataLoader   : Located environment: name=torrentsearch, profiles=[prod], label=main, version=8b3b885821b14aaeb18214ad75bc20fab0430cb8, state=null
+2024-10-31T21:21:57.906+03:00  INFO 1 --- [torrentsearch] [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=8bcdd9da-f9c1-3793-b06c-846908aaafc0
+2024-10-31T21:21:59.579+03:00  INFO 1 --- [torrentsearch] [           main] o.s.b.web.embedded.netty.NettyWebServer  : Netty started on port 8080
+2024-10-31T21:21:59.614+03:00  INFO 1 --- [torrentsearch] [           main] me.home.torrentsearch.Application        : Started Application in 6.101 seconds (process running for 7.068)
+2024-10-31T21:24:59.751+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-2] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: а зори здесь
+2024-10-31T21:24:59.754+03:00 DEBUG 1 --- [torrentsearch] [onPool-worker-1] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: а зори здесь
+2024-10-31T22:21:52.649+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-4] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-10-31T22:21:52.650+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-4] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-10-31T22:22:12.512+03:00 DEBUG 1 --- [torrentsearch] [onPool-worker-2] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: Гарри поттер и кубок
+2024-10-31T22:22:12.512+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-1] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: Гарри поттер и кубок
+2024-10-31T22:22:34.194+03:00 DEBUG 1 --- [torrentsearch] [onPool-worker-2] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: Ледниковый период 2
+2024-10-31T22:22:34.195+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-1] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: Ледниковый период 2
+2024-10-31T22:23:11.061+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-1] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: Ледниковый период глобальное потепление
+2024-10-31T22:23:11.062+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-1] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: Ледниковый период глобальное потепление
+2024-10-31T23:21:53.132+03:00 DEBUG 1 --- [torrentsearch] [onPool-worker-3] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-10-31T23:21:53.132+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-2] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-01T00:21:53.574+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-3] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-01T00:21:53.575+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-3] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-01T01:21:54.001+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-4] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-01T01:21:54.002+03:00 DEBUG 1 --- [torrentsearch] [onPool-worker-5] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-01T02:21:54.467+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-1] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-01T02:21:54.468+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-1] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-01T03:21:54.805+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-2] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-01T03:21:54.805+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-2] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-01T04:21:55.180+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-3] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-01T04:21:55.181+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-3] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-01T05:21:55.535+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-4] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-01T05:21:55.536+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-4] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-01T06:21:56.209+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-1] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-01T06:21:56.209+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-1] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-01T06:31:51.218+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-1] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: трасса 2024
+2024-11-01T06:31:51.219+03:00 DEBUG 1 --- [torrentsearch] [nPool-worker-11] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: трасса 2024
+2024-11-01T07:21:56.586+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-2] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-01T07:21:56.586+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-2] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-01T08:21:56.925+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-3] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-01T08:21:56.925+03:00 DEBUG 1 --- [torrentsearch] [nPool-worker-13] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-01T08:39:57.184+03:00 DEBUG 1 --- [torrentsearch] [nPool-worker-14] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: Ледниковый период глобальное потепление
+2024-11-01T08:39:57.183+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-4] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: Ледниковый период глобальное потепление
+2024-11-01T09:21:57.276+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-1] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-01T09:21:57.276+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-1] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-01T10:21:57.616+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-2] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-01T10:21:57.616+03:00 DEBUG 1 --- [torrentsearch] [nPool-worker-16] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-01T11:21:58.005+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-3] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-01T11:21:58.005+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-3] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-01T11:45:08.916+03:00 DEBUG 1 --- [torrentsearch] [nPool-worker-18] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: Плохая обезьяна
+2024-11-01T11:45:08.916+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-4] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: Плохая обезьяна
+2024-11-01T11:45:52.058+03:00 DEBUG 1 --- [torrentsearch] [nPool-worker-18] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: Плохая обезьяна кубик в кубе
+2024-11-01T11:45:52.059+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-4] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: Плохая обезьяна кубик в кубе
+2024-11-01T12:21:58.591+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-2] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-01T12:21:58.592+03:00 DEBUG 1 --- [torrentsearch] [nPool-worker-19] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-01T13:21:58.941+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-3] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-01T13:21:58.942+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-3] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-01T14:21:59.301+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-2] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-01T14:21:59.302+03:00 DEBUG 1 --- [torrentsearch] [nPool-worker-21] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-01T15:21:59.757+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-3] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-01T15:21:59.757+03:00 DEBUG 1 --- [torrentsearch] [nPool-worker-22] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-01T16:22:00.127+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-4] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-01T16:22:00.128+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-4] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-01T17:22:00.669+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-1] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-01T17:22:00.669+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-1] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-01T18:12:18.779+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-2] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: приключения
+2024-11-01T18:12:18.780+03:00 DEBUG 1 --- [torrentsearch] [nPool-worker-25] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: приключения
+2024-11-01T18:22:01.067+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-3] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-01T18:22:01.067+03:00 DEBUG 1 --- [torrentsearch] [nPool-worker-26] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-01T19:22:01.528+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-4] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-01T19:22:01.528+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-4] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-01T20:22:01.999+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-1] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-01T20:22:01.999+03:00 DEBUG 1 --- [torrentsearch] [nPool-worker-28] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-01T21:22:02.480+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-2] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-01T21:22:02.480+03:00 DEBUG 1 --- [torrentsearch] [nPool-worker-29] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-01T22:22:03.177+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-3] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-01T22:22:03.178+03:00 DEBUG 1 --- [torrentsearch] [nPool-worker-30] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-01T23:22:03.569+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-4] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-01T23:22:03.570+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-4] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-02T00:22:04.058+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-1] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-02T00:22:04.059+03:00 DEBUG 1 --- [torrentsearch] [nPool-worker-32] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-02T01:22:04.516+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-2] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-02T01:22:04.516+03:00 DEBUG 1 --- [torrentsearch] [nPool-worker-33] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-02T02:22:05.007+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-3] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-02T02:22:05.007+03:00 DEBUG 1 --- [torrentsearch] [nPool-worker-34] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-02T03:22:05.421+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-4] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-02T03:22:05.421+03:00 DEBUG 1 --- [torrentsearch] [nPool-worker-35] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-02T04:22:05.781+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-1] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-02T04:22:05.782+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-1] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-02T05:22:06.124+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-2] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-02T05:22:06.124+03:00 DEBUG 1 --- [torrentsearch] [nPool-worker-37] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-02T06:22:06.457+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-3] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-02T06:22:06.457+03:00 DEBUG 1 --- [torrentsearch] [nPool-worker-38] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-02T07:22:06.919+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-4] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-02T07:22:06.919+03:00 DEBUG 1 --- [torrentsearch] [nPool-worker-39] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-02T08:22:07.233+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-3] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-02T08:22:07.233+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-3] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-02T09:17:04.702+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-2] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: Джуманджи
+2024-11-02T09:17:04.702+03:00 DEBUG 1 --- [torrentsearch] [nPool-worker-41] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: Джуманджи
+2024-11-02T09:22:07.650+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-4] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-02T09:22:07.650+03:00 DEBUG 1 --- [torrentsearch] [nPool-worker-42] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-02T09:37:53.276+03:00  INFO 1 --- [torrentsearch] [or-http-epoll-1] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 346 ms
+2024-11-02T10:22:07.929+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-3] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-02T10:22:07.930+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-3] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-02T11:22:08.289+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-4] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-02T11:22:08.289+03:00 DEBUG 1 --- [torrentsearch] [nPool-worker-45] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-02T12:22:08.640+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-1] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-02T12:22:08.640+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-1] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-02T13:22:09.058+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-4] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-02T13:22:09.058+03:00 DEBUG 1 --- [torrentsearch] [nPool-worker-47] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-02T14:00:00.571+03:00  WARN 1 --- [torrentsearch] [or-http-epoll-4] r.netty.http.client.HttpClientConnect    : [757b3f22-2, L:/172.17.0.2:45558 - R:kinozal.tv/188.114.96.7:443] The connection observed an error, the request cannot be retried as the headers/body were sent
+io.netty.channel.unix.Errors$NativeIoException: recvAddress(..) failed: Connection reset by peer
+2024-11-02T14:00:00.587+03:00 ERROR 1 --- [torrentsearch] [or-http-epoll-4] o.s.w.s.adapter.HttpWebHandlerAdapter    : [13f34904-279] 500 Server Error for HTTP GET "/api/v0/search/KINOZAL/2051487/hash"
+org.springframework.web.reactive.function.client.WebClientRequestException: recvAddress(..) failed: Connection reset by peer
+	at org.springframework.web.reactive.function.client.ExchangeFunctions$DefaultExchangeFunction.lambda$wrapException$9(ExchangeFunctions.java:136) ~[spring-webflux-6.1.3.jar!/:6.1.3]
+	Suppressed: reactor.core.publisher.FluxOnAssembly$OnAssemblyException:
+Error has been observed at the following site(s):
+	*__checkpoint ⇢ Request to GET https://kinozal.tv/get_srv_details.php [DefaultWebClient]
+	*__checkpoint ⇢ Handler me.home.torrentsearch.controller.SearchController#hash(TrackerEnum, String) [DispatcherHandler]
+	*__checkpoint ⇢ HTTP GET "/api/v0/search/KINOZAL/2051487/hash" [ExceptionHandlingWebHandler]
+Original Stack Trace:
+		at org.springframework.web.reactive.function.client.ExchangeFunctions$DefaultExchangeFunction.lambda$wrapException$9(ExchangeFunctions.java:136) ~[spring-webflux-6.1.3.jar!/:6.1.3]
+		at reactor.core.publisher.MonoErrorSupplied.subscribe(MonoErrorSupplied.java:55) ~[reactor-core-3.6.2.jar!/:3.6.2]
+		at reactor.core.publisher.Mono.subscribe(Mono.java:4512) ~[reactor-core-3.6.2.jar!/:3.6.2]
+		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:103) ~[reactor-core-3.6.2.jar!/:3.6.2]
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222) ~[reactor-core-3.6.2.jar!/:3.6.2]
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222) ~[reactor-core-3.6.2.jar!/:3.6.2]
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222) ~[reactor-core-3.6.2.jar!/:3.6.2]
+		at reactor.core.publisher.MonoNext$NextSubscriber.onError(MonoNext.java:93) ~[reactor-core-3.6.2.jar!/:3.6.2]
+		at reactor.core.publisher.MonoFlatMapMany$FlatMapManyMain.onError(MonoFlatMapMany.java:205) ~[reactor-core-3.6.2.jar!/:3.6.2]
+		at reactor.core.publisher.SerializedSubscriber.onError(SerializedSubscriber.java:124) ~[reactor-core-3.6.2.jar!/:3.6.2]
+		at reactor.core.publisher.FluxRetryWhen$RetryWhenMainSubscriber.whenError(FluxRetryWhen.java:229) ~[reactor-core-3.6.2.jar!/:3.6.2]
+		at reactor.core.publisher.FluxRetryWhen$RetryWhenOtherSubscriber.onError(FluxRetryWhen.java:279) ~[reactor-core-3.6.2.jar!/:3.6.2]
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onError(FluxContextWrite.java:121) ~[reactor-core-3.6.2.jar!/:3.6.2]
+		at reactor.core.publisher.FluxConcatMapNoPrefetch$FluxConcatMapNoPrefetchSubscriber.maybeOnError(FluxConcatMapNoPrefetch.java:327) ~[reactor-core-3.6.2.jar!/:3.6.2]
+		at reactor.core.publisher.FluxConcatMapNoPrefetch$FluxConcatMapNoPrefetchSubscriber.onNext(FluxConcatMapNoPrefetch.java:212) ~[reactor-core-3.6.2.jar!/:3.6.2]
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onNext(FluxContextWrite.java:107) ~[reactor-core-3.6.2.jar!/:3.6.2]
+		at reactor.core.publisher.SinkManyEmitterProcessor.drain(SinkManyEmitterProcessor.java:476) ~[reactor-core-3.6.2.jar!/:3.6.2]
+		at reactor.core.publisher.SinkManyEmitterProcessor$EmitterInner.drainParent(SinkManyEmitterProcessor.java:620) ~[reactor-core-3.6.2.jar!/:3.6.2]
+		at reactor.core.publisher.FluxPublish$PubSubInner.request(FluxPublish.java:874) ~[reactor-core-3.6.2.jar!/:3.6.2]
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.request(FluxContextWrite.java:136) ~[reactor-core-3.6.2.jar!/:3.6.2]
+		at reactor.core.publisher.FluxConcatMapNoPrefetch$FluxConcatMapNoPrefetchSubscriber.request(FluxConcatMapNoPrefetch.java:337) ~[reactor-core-3.6.2.jar!/:3.6.2]
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.request(FluxContextWrite.java:136) ~[reactor-core-3.6.2.jar!/:3.6.2]
+		at reactor.core.publisher.Operators$DeferredSubscription.request(Operators.java:1743) ~[reactor-core-3.6.2.jar!/:3.6.2]
+		at reactor.core.publisher.FluxRetryWhen$RetryWhenMainSubscriber.onError(FluxRetryWhen.java:196) ~[reactor-core-3.6.2.jar!/:3.6.2]
+		at reactor.core.publisher.MonoCreate$DefaultMonoSink.error(MonoCreate.java:205) ~[reactor-core-3.6.2.jar!/:3.6.2]
+		at reactor.netty.http.client.HttpClientConnect$HttpObserver.onUncaughtException(HttpClientConnect.java:403) ~[reactor-netty-http-1.1.15.jar!/:1.1.15]
+		at reactor.netty.ReactorNetty$CompositeConnectionObserver.onUncaughtException(ReactorNetty.java:703) ~[reactor-netty-core-1.1.15.jar!/:1.1.15]
+		at reactor.netty.resources.DefaultPooledConnectionProvider$DisposableAcquire.onUncaughtException(DefaultPooledConnectionProvider.java:223) ~[reactor-netty-core-1.1.15.jar!/:1.1.15]
+		at reactor.netty.resources.DefaultPooledConnectionProvider$PooledConnection.onUncaughtException(DefaultPooledConnectionProvider.java:476) ~[reactor-netty-core-1.1.15.jar!/:1.1.15]
+		at reactor.netty.channel.FluxReceive.drainReceiver(FluxReceive.java:247) ~[reactor-netty-core-1.1.15.jar!/:1.1.15]
+		at reactor.netty.channel.FluxReceive.onInboundError(FluxReceive.java:468) ~[reactor-netty-core-1.1.15.jar!/:1.1.15]
+		at reactor.netty.channel.ChannelOperations.onInboundError(ChannelOperations.java:515) ~[reactor-netty-core-1.1.15.jar!/:1.1.15]
+		at reactor.netty.channel.ChannelOperationsHandler.exceptionCaught(ChannelOperationsHandler.java:145) ~[reactor-netty-core-1.1.15.jar!/:1.1.15]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeExceptionCaught(AbstractChannelHandlerContext.java:346) ~[netty-transport-4.1.105.Final.jar!/:4.1.105.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeExceptionCaught(AbstractChannelHandlerContext.java:325) ~[netty-transport-4.1.105.Final.jar!/:4.1.105.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.fireExceptionCaught(AbstractChannelHandlerContext.java:317) ~[netty-transport-4.1.105.Final.jar!/:4.1.105.Final]
+		at io.netty.channel.CombinedChannelDuplexHandler$DelegatingChannelHandlerContext.fireExceptionCaught(CombinedChannelDuplexHandler.java:424) ~[netty-transport-4.1.105.Final.jar!/:4.1.105.Final]
+		at io.netty.channel.ChannelHandlerAdapter.exceptionCaught(ChannelHandlerAdapter.java:92) ~[netty-transport-4.1.105.Final.jar!/:4.1.105.Final]
+		at io.netty.channel.CombinedChannelDuplexHandler$1.fireExceptionCaught(CombinedChannelDuplexHandler.java:145) ~[netty-transport-4.1.105.Final.jar!/:4.1.105.Final]
+		at io.netty.channel.ChannelInboundHandlerAdapter.exceptionCaught(ChannelInboundHandlerAdapter.java:143) ~[netty-transport-4.1.105.Final.jar!/:4.1.105.Final]
+		at io.netty.channel.CombinedChannelDuplexHandler.exceptionCaught(CombinedChannelDuplexHandler.java:231) ~[netty-transport-4.1.105.Final.jar!/:4.1.105.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeExceptionCaught(AbstractChannelHandlerContext.java:346) ~[netty-transport-4.1.105.Final.jar!/:4.1.105.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeExceptionCaught(AbstractChannelHandlerContext.java:325) ~[netty-transport-4.1.105.Final.jar!/:4.1.105.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.fireExceptionCaught(AbstractChannelHandlerContext.java:317) ~[netty-transport-4.1.105.Final.jar!/:4.1.105.Final]
+		at io.netty.handler.logging.LoggingHandler.exceptionCaught(LoggingHandler.java:214) ~[netty-handler-4.1.105.Final.jar!/:4.1.105.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeExceptionCaught(AbstractChannelHandlerContext.java:346) ~[netty-transport-4.1.105.Final.jar!/:4.1.105.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeExceptionCaught(AbstractChannelHandlerContext.java:325) ~[netty-transport-4.1.105.Final.jar!/:4.1.105.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.fireExceptionCaught(AbstractChannelHandlerContext.java:317) ~[netty-transport-4.1.105.Final.jar!/:4.1.105.Final]
+		at io.netty.handler.ssl.SslHandler.exceptionCaught(SslHandler.java:1204) ~[netty-handler-4.1.105.Final.jar!/:4.1.105.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeExceptionCaught(AbstractChannelHandlerContext.java:346) ~[netty-transport-4.1.105.Final.jar!/:4.1.105.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeExceptionCaught(AbstractChannelHandlerContext.java:325) ~[netty-transport-4.1.105.Final.jar!/:4.1.105.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.fireExceptionCaught(AbstractChannelHandlerContext.java:317) ~[netty-transport-4.1.105.Final.jar!/:4.1.105.Final]
+		at io.netty.channel.DefaultChannelPipeline$HeadContext.exceptionCaught(DefaultChannelPipeline.java:1377) ~[netty-transport-4.1.105.Final.jar!/:4.1.105.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeExceptionCaught(AbstractChannelHandlerContext.java:346) ~[netty-transport-4.1.105.Final.jar!/:4.1.105.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeExceptionCaught(AbstractChannelHandlerContext.java:325) ~[netty-transport-4.1.105.Final.jar!/:4.1.105.Final]
+		at io.netty.channel.DefaultChannelPipeline.fireExceptionCaught(DefaultChannelPipeline.java:907) ~[netty-transport-4.1.105.Final.jar!/:4.1.105.Final]
+		at io.netty.channel.epoll.AbstractEpollStreamChannel$EpollStreamUnsafe.handleReadException(AbstractEpollStreamChannel.java:728) ~[netty-transport-classes-epoll-4.1.105.Final.jar!/:4.1.105.Final]
+		at io.netty.channel.epoll.AbstractEpollStreamChannel$EpollStreamUnsafe.epollInReady(AbstractEpollStreamChannel.java:826) ~[netty-transport-classes-epoll-4.1.105.Final.jar!/:4.1.105.Final]
+		at io.netty.channel.epoll.EpollEventLoop.processReady(EpollEventLoop.java:509) ~[netty-transport-classes-epoll-4.1.105.Final.jar!/:4.1.105.Final]
+		at io.netty.channel.epoll.EpollEventLoop.run(EpollEventLoop.java:407) ~[netty-transport-classes-epoll-4.1.105.Final.jar!/:4.1.105.Final]
+		at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997) ~[netty-common-4.1.105.Final.jar!/:4.1.105.Final]
+		at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.105.Final.jar!/:4.1.105.Final]
+		at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.105.Final.jar!/:4.1.105.Final]
+		at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+Caused by: io.netty.channel.unix.Errors$NativeIoException: recvAddress(..) failed: Connection reset by peer
+2024-11-02T14:22:09.444+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-1] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-02T14:22:09.444+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-1] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-02T15:15:50.212+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-2] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: Гарри Поттер
+2024-11-02T15:15:50.212+03:00 DEBUG 1 --- [torrentsearch] [nPool-worker-49] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: Гарри Поттер
+2024-11-02T15:16:22.061+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-3] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: Гарри Поттер
+2024-11-02T15:16:22.062+03:00 DEBUG 1 --- [torrentsearch] [nPool-worker-49] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: Гарри Поттер
+2024-11-02T15:17:08.051+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-4] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: Гарри Поттер
+2024-11-02T15:17:08.051+03:00 DEBUG 1 --- [torrentsearch] [nPool-worker-49] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: Гарри Поттер
+2024-11-02T15:21:04.760+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-1] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: Река
+2024-11-02T15:21:04.761+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-1] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: Река
+2024-11-02T15:22:09.834+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-2] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-02T15:22:09.834+03:00 DEBUG 1 --- [torrentsearch] [nPool-worker-51] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-02T16:22:10.115+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-3] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-02T16:22:10.115+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-3] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-02T16:36:22.929+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-4] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: Ледниковый период 2: Глобальное Потепление
+2024-11-02T16:36:22.930+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-4] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: Ледниковый период 2: Глобальное Потепление
+2024-11-02T17:22:10.686+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-3] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-02T17:22:10.687+03:00 DEBUG 1 --- [torrentsearch] [nPool-worker-54] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-02T18:22:11.131+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-4] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-02T18:22:11.131+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-4] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-02T18:27:39.904+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-1] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: Трасса
+2024-11-02T18:27:39.904+03:00 DEBUG 1 --- [torrentsearch] [nPool-worker-56] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: Трасса
+2024-11-02T19:22:11.642+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-2] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-02T19:22:11.642+03:00 DEBUG 1 --- [torrentsearch] [nPool-worker-57] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-02T20:22:12.076+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-3] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-02T20:22:12.076+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-3] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-02T21:22:12.521+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-4] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-02T21:22:12.521+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-4] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-02T22:22:13.017+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-1] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-02T22:22:13.017+03:00 DEBUG 1 --- [torrentsearch] [nPool-worker-60] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-02T23:22:13.453+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-2] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-02T23:22:13.453+03:00 DEBUG 1 --- [torrentsearch] [nPool-worker-61] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-03T00:22:13.877+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-3] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-03T00:22:13.878+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-3] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-03T01:22:14.483+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-4] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-03T01:22:14.483+03:00 DEBUG 1 --- [torrentsearch] [nPool-worker-63] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-03T02:22:14.886+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-1] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-03T02:22:14.886+03:00 DEBUG 1 --- [torrentsearch] [nPool-worker-64] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-03T03:22:15.300+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-2] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-03T03:22:15.300+03:00 DEBUG 1 --- [torrentsearch] [nPool-worker-65] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-03T04:22:15.688+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-3] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-03T04:22:15.688+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-3] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-03T05:22:16.108+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-4] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-03T05:22:16.109+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-4] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-03T06:22:16.486+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-1] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-03T06:22:16.486+03:00 DEBUG 1 --- [torrentsearch] [nPool-worker-68] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-03T07:22:16.853+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-2] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-03T07:22:16.853+03:00 DEBUG 1 --- [torrentsearch] [nPool-worker-69] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-03T08:22:17.270+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-3] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-03T08:22:17.270+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-3] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-03T08:51:40.331+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-4] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: Жаль Верн
+2024-11-03T08:51:40.332+03:00 DEBUG 1 --- [torrentsearch] [nPool-worker-71] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: Жаль Верн
+2024-11-03T08:51:45.812+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-4] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: Жуль Верн
+2024-11-03T08:51:45.813+03:00 DEBUG 1 --- [torrentsearch] [nPool-worker-71] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: Жуль Верн
+2024-11-03T08:51:59.425+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-4] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: Аудиокнига
+2024-11-03T08:51:59.425+03:00 DEBUG 1 --- [torrentsearch] [nPool-worker-71] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: Аудиокнига
+2024-11-03T09:22:17.610+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-1] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-03T09:22:17.610+03:00 DEBUG 1 --- [torrentsearch] [nPool-worker-72] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-03T10:22:17.966+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-2] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-03T10:22:17.966+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-2] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-03T11:22:18.282+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-3] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-03T11:22:18.283+03:00 DEBUG 1 --- [torrentsearch] [nPool-worker-74] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-03T12:22:18.652+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-4] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-03T12:22:18.653+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-4] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-03T13:22:18.989+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-2] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-03T13:22:18.989+03:00 DEBUG 1 --- [torrentsearch] [nPool-worker-76] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-03T14:22:19.354+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-1] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-03T14:22:19.355+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-1] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-03T15:22:19.763+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-2] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-03T15:22:19.763+03:00 DEBUG 1 --- [torrentsearch] [nPool-worker-78] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-03T16:22:20.403+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-3] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-03T16:22:20.403+03:00 DEBUG 1 --- [torrentsearch] [nPool-worker-79] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-03T17:22:20.938+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-4] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-03T17:22:20.938+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-4] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-03T18:22:21.433+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-1] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-03T18:22:21.433+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-1] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-03T19:22:21.908+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-2] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-03T19:22:21.908+03:00 DEBUG 1 --- [torrentsearch] [nPool-worker-82] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-03T20:22:22.746+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-3] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-03T20:22:22.746+03:00 DEBUG 1 --- [torrentsearch] [nPool-worker-83] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-03T21:22:25.046+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-4] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-03T21:22:25.047+03:00 DEBUG 1 --- [torrentsearch] [nPool-worker-84] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-03T22:22:26.219+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-1] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-03T22:22:26.220+03:00 DEBUG 1 --- [torrentsearch] [nPool-worker-85] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-03T23:22:27.057+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-2] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-03T23:22:27.057+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-2] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-04T00:22:27.502+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-3] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-04T00:22:27.502+03:00 DEBUG 1 --- [torrentsearch] [nPool-worker-87] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-04T01:22:27.918+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-4] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-04T01:22:27.918+03:00 DEBUG 1 --- [torrentsearch] [nPool-worker-88] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-04T02:22:28.311+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-1] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-04T02:22:28.311+03:00 DEBUG 1 --- [torrentsearch] [nPool-worker-89] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-04T03:22:28.713+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-2] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-04T03:22:28.713+03:00 DEBUG 1 --- [torrentsearch] [nPool-worker-90] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-04T04:22:29.150+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-3] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-04T04:22:29.150+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-3] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-04T05:22:29.537+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-4] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-04T05:22:29.537+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-4] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-04T06:22:29.962+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-1] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-04T06:22:29.962+03:00 DEBUG 1 --- [torrentsearch] [nPool-worker-93] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-04T07:22:30.598+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-2] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-04T07:22:30.598+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-2] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-04T08:22:31.094+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-3] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-04T08:22:31.094+03:00 DEBUG 1 --- [torrentsearch] [nPool-worker-95] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-04T09:22:31.695+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-2] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-04T09:22:31.695+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-2] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-04T10:22:32.070+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-1] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-04T10:22:32.070+03:00 DEBUG 1 --- [torrentsearch] [nPool-worker-97] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-04T11:22:32.516+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-2] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-04T11:22:32.516+03:00 DEBUG 1 --- [torrentsearch] [nPool-worker-98] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-04T12:22:33.033+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-3] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-04T12:22:33.033+03:00 DEBUG 1 --- [torrentsearch] [nPool-worker-99] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-04T13:22:33.531+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-4] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-04T13:22:33.531+03:00 DEBUG 1 --- [torrentsearch] [Pool-worker-100] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-04T14:22:34.135+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-1] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-04T14:22:34.136+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-1] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-04T15:22:34.521+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-4] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-04T15:22:34.521+03:00 DEBUG 1 --- [torrentsearch] [Pool-worker-102] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-04T16:22:34.944+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-3] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-04T16:22:34.944+03:00 DEBUG 1 --- [torrentsearch] [Pool-worker-103] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-04T17:22:35.388+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-4] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-04T17:22:35.388+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-4] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-04T18:22:35.810+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-1] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-04T18:22:35.811+03:00 DEBUG 1 --- [torrentsearch] [Pool-worker-105] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-04T19:22:36.322+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-2] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-04T19:22:36.322+03:00 DEBUG 1 --- [torrentsearch] [Pool-worker-106] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-04T20:22:37.004+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-3] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-04T20:22:37.005+03:00 DEBUG 1 --- [torrentsearch] [Pool-worker-107] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-04T21:00:24.225+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-4] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: Ледниковый период 3
+2024-11-04T21:00:24.229+03:00 DEBUG 1 --- [torrentsearch] [Pool-worker-108] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: Ледниковый период 3
+2024-11-04T21:22:37.455+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-4] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-04T21:22:37.455+03:00 DEBUG 1 --- [torrentsearch] [Pool-worker-109] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-04T22:22:37.841+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-1] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-04T22:22:37.841+03:00 DEBUG 1 --- [torrentsearch] [Pool-worker-110] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-04T23:22:38.575+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-2] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-04T23:22:38.575+03:00 DEBUG 1 --- [torrentsearch] [Pool-worker-111] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-05T00:22:39.050+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-3] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-05T00:22:39.050+03:00 DEBUG 1 --- [torrentsearch] [Pool-worker-112] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-05T01:22:39.541+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-4] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-05T01:22:39.541+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-4] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-05T02:22:39.945+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-1] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-05T02:22:39.946+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-1] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-05T03:22:40.369+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-2] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-05T03:22:40.369+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-2] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-05T04:22:40.715+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-3] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-05T04:22:40.715+03:00 DEBUG 1 --- [torrentsearch] [Pool-worker-116] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-05T05:22:41.396+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-4] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-05T05:22:41.396+03:00 DEBUG 1 --- [torrentsearch] [Pool-worker-117] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-05T06:22:41.789+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-1] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-05T06:22:41.789+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-1] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-05T06:43:55.145+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-2] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: Гарри Поттер
+2024-11-05T06:43:55.146+03:00 DEBUG 1 --- [torrentsearch] [Pool-worker-119] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: Гарри Поттер
+2024-11-05T06:47:58.300+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-3] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: Гарри Поттер
+2024-11-05T06:47:58.300+03:00 DEBUG 1 --- [torrentsearch] [Pool-worker-120] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: Гарри Поттер
+2024-11-05T06:55:44.465+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-4] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: Гарри Поттер
+2024-11-05T06:55:44.465+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-4] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: Гарри Поттер
+2024-11-05T07:02:40.812+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-1] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: Гарри Поттер
+2024-11-05T07:02:40.813+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-1] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: Гарри Поттер
+2024-11-05T07:06:07.327+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-2] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: Гарри Поттер
+2024-11-05T07:06:07.328+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-2] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: Гарри Поттер
+2024-11-05T07:22:42.179+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-3] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-05T07:22:42.179+03:00 DEBUG 1 --- [torrentsearch] [Pool-worker-124] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-05T07:28:22.990+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-4] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: Проверка
+2024-11-05T07:28:22.990+03:00 DEBUG 1 --- [torrentsearch] [Pool-worker-125] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: Проверка
+2024-11-05T08:22:42.493+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-3] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-05T08:22:42.493+03:00 DEBUG 1 --- [torrentsearch] [Pool-worker-126] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-05T08:38:14.654+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-4] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: Ледниковый период 3
+2024-11-05T08:38:14.654+03:00 DEBUG 1 --- [torrentsearch] [Pool-worker-127] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: Ледниковый период 3
+2024-11-05T08:39:45.734+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-4] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: Ледниковый период 3
+2024-11-05T08:39:45.734+03:00 DEBUG 1 --- [torrentsearch] [Pool-worker-128] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: Ледниковый период 3
+2024-11-05T09:22:42.853+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-4] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-05T09:22:42.854+03:00 DEBUG 1 --- [torrentsearch] [Pool-worker-129] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-05T10:17:31.975+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-4] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: Проверка
+2024-11-05T10:17:31.975+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-4] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: Проверка
+2024-11-05T10:22:43.300+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-1] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-05T10:22:43.300+03:00 DEBUG 1 --- [torrentsearch] [Pool-worker-131] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-05T11:22:43.655+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-2] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-05T11:22:43.655+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-2] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-05T11:35:07.301+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-3] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: Гарри Поттер
+2024-11-05T11:35:07.302+03:00 DEBUG 1 --- [torrentsearch] [Pool-worker-133] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: Гарри Поттер
+2024-11-05T11:36:01.784+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-4] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: Гарри Поттер
+2024-11-05T11:36:01.784+03:00 DEBUG 1 --- [torrentsearch] [Pool-worker-133] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: Гарри Поттер
+2024-11-05T11:46:21.656+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-2] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: Гарри Поттер
+2024-11-05T11:46:21.657+03:00 DEBUG 1 --- [torrentsearch] [Pool-worker-134] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: Гарри Поттер
+2024-11-05T11:51:38.072+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-3] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: Гарри Поттер
+2024-11-05T11:51:38.072+03:00 DEBUG 1 --- [torrentsearch] [Pool-worker-135] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: Гарри Поттер
+2024-11-05T11:54:20.451+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-4] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: Гарри Поттер
+2024-11-05T11:54:20.452+03:00 DEBUG 1 --- [torrentsearch] [Pool-worker-136] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: Гарри Поттер
+2024-11-05T12:22:44.000+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-1] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-05T12:22:44.000+03:00 DEBUG 1 --- [torrentsearch] [Pool-worker-137] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-05T12:50:52.696+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-2] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: Гарри Поттер
+2024-11-05T12:50:52.696+03:00 DEBUG 1 --- [torrentsearch] [Pool-worker-138] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: Гарри Поттер
+2024-11-05T12:51:06.171+03:00 DEBUG 1 --- [torrentsearch] [Pool-worker-138] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: Гарри Поттер
+2024-11-05T12:51:06.171+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-3] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: Гарри Поттер
+2024-11-05T12:51:37.703+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-4] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: Гарри Поттер
+2024-11-05T12:51:37.704+03:00 DEBUG 1 --- [torrentsearch] [Pool-worker-138] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: Гарри Поттер
+2024-11-05T12:52:05.834+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-1] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: Гарри Поттер
+2024-11-05T12:52:05.834+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-1] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: Гарри Поттер
+2024-11-05T13:22:44.392+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-2] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-05T13:22:44.393+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-2] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-05T14:22:44.759+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-3] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-05T14:22:44.759+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-3] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-05T15:22:45.164+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-4] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-05T15:22:45.165+03:00 DEBUG 1 --- [torrentsearch] [Pool-worker-141] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-05T16:22:45.640+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-1] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-05T16:22:45.641+03:00 DEBUG 1 --- [torrentsearch] [Pool-worker-142] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-05T17:22:46.167+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-2] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-05T17:22:46.167+03:00 DEBUG 1 --- [torrentsearch] [Pool-worker-143] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-05T18:22:46.888+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-4] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-05T18:22:46.889+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-4] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-05T19:19:59.559+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-1] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: История поездов
+2024-11-05T19:19:59.560+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-1] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: История поездов
+2024-11-05T19:22:47.425+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-2] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-05T19:22:47.425+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-2] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-05T20:22:47.896+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-3] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-05T20:22:47.896+03:00 DEBUG 1 --- [torrentsearch] [Pool-worker-147] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-05T20:54:43.032+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-1] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: Мэтлок
+2024-11-05T20:54:43.032+03:00 DEBUG 1 --- [torrentsearch] [Pool-worker-148] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: Мэтлок
+2024-11-05T21:22:48.366+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-4] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-05T21:22:48.366+03:00 DEBUG 1 --- [torrentsearch] [Pool-worker-149] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-05T22:22:49.007+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-3] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-05T22:22:49.007+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-3] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-05T23:22:49.472+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-1] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-05T23:22:49.473+03:00 DEBUG 1 --- [torrentsearch] [Pool-worker-151] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-06T00:22:51.753+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-2] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-06T00:22:51.753+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-2] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-06T01:22:56.048+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-3] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-06T01:22:56.048+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-3] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-06T02:22:56.685+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-4] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-06T02:22:56.685+03:00 DEBUG 1 --- [torrentsearch] [Pool-worker-154] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-06T03:22:57.115+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-1] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-06T03:22:57.115+03:00 DEBUG 1 --- [torrentsearch] [Pool-worker-155] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-06T04:22:57.690+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-2] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-06T04:22:57.691+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-2] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-06T05:22:58.217+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-3] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-06T05:22:58.217+03:00 DEBUG 1 --- [torrentsearch] [Pool-worker-157] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-06T06:22:58.644+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-4] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-06T06:22:58.644+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-4] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-06T07:22:59.051+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-1] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-06T07:22:59.051+03:00 DEBUG 1 --- [torrentsearch] [Pool-worker-159] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-06T07:43:38.162+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-2] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: Форест гамп
+2024-11-06T07:43:38.163+03:00 DEBUG 1 --- [torrentsearch] [Pool-worker-160] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: Форест гамп
+2024-11-06T07:43:57.067+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-2] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: Форест
+2024-11-06T07:43:57.067+03:00 DEBUG 1 --- [torrentsearch] [Pool-worker-160] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: Форест
+2024-11-06T07:44:17.622+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-2] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: Форрест гамп
+2024-11-06T07:44:17.622+03:00 DEBUG 1 --- [torrentsearch] [Pool-worker-160] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: Форрест гамп
+2024-11-06T07:47:35.073+03:00  WARN 1 --- [torrentsearch] [or-http-epoll-2] r.netty.http.client.HttpClientConnect    : [d0eaaa6d-5, L:/172.17.0.2:60408 - R:rutracker.org/172.67.182.196:443] The connection observed an error
+io.netty.handler.timeout.ReadTimeoutException: null
+2024-11-06T07:47:35.074+03:00 ERROR 1 --- [torrentsearch] [or-http-epoll-2] m.h.t.service.impl.RutrackerTracker      : details exp
+org.springframework.web.reactive.function.client.WebClientRequestException: null
+	at org.springframework.web.reactive.function.client.ExchangeFunctions$DefaultExchangeFunction.lambda$wrapException$9(ExchangeFunctions.java:136) ~[spring-webflux-6.1.3.jar!/:6.1.3]
+	Suppressed: reactor.core.publisher.FluxOnAssembly$OnAssemblyException:
+Error has been observed at the following site(s):
+	*__checkpoint ⇢ Request to GET https://rutracker.org/forum/viewtopic.php [DefaultWebClient]
+Original Stack Trace:
+		at org.springframework.web.reactive.function.client.ExchangeFunctions$DefaultExchangeFunction.lambda$wrapException$9(ExchangeFunctions.java:136) ~[spring-webflux-6.1.3.jar!/:6.1.3]
+		at reactor.core.publisher.MonoErrorSupplied.subscribe(MonoErrorSupplied.java:55) ~[reactor-core-3.6.2.jar!/:3.6.2]
+		at reactor.core.publisher.Mono.subscribe(Mono.java:4512) ~[reactor-core-3.6.2.jar!/:3.6.2]
+		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:103) ~[reactor-core-3.6.2.jar!/:3.6.2]
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222) ~[reactor-core-3.6.2.jar!/:3.6.2]
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222) ~[reactor-core-3.6.2.jar!/:3.6.2]
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222) ~[reactor-core-3.6.2.jar!/:3.6.2]
+		at reactor.core.publisher.MonoNext$NextSubscriber.onError(MonoNext.java:93) ~[reactor-core-3.6.2.jar!/:3.6.2]
+		at reactor.core.publisher.MonoFlatMapMany$FlatMapManyMain.onError(MonoFlatMapMany.java:205) ~[reactor-core-3.6.2.jar!/:3.6.2]
+		at reactor.core.publisher.SerializedSubscriber.onError(SerializedSubscriber.java:124) ~[reactor-core-3.6.2.jar!/:3.6.2]
+		at reactor.core.publisher.FluxRetryWhen$RetryWhenMainSubscriber.whenError(FluxRetryWhen.java:229) ~[reactor-core-3.6.2.jar!/:3.6.2]
+		at reactor.core.publisher.FluxRetryWhen$RetryWhenOtherSubscriber.onError(FluxRetryWhen.java:279) ~[reactor-core-3.6.2.jar!/:3.6.2]
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onError(FluxContextWrite.java:121) ~[reactor-core-3.6.2.jar!/:3.6.2]
+		at reactor.core.publisher.FluxConcatMapNoPrefetch$FluxConcatMapNoPrefetchSubscriber.maybeOnError(FluxConcatMapNoPrefetch.java:327) ~[reactor-core-3.6.2.jar!/:3.6.2]
+		at reactor.core.publisher.FluxConcatMapNoPrefetch$FluxConcatMapNoPrefetchSubscriber.onNext(FluxConcatMapNoPrefetch.java:212) ~[reactor-core-3.6.2.jar!/:3.6.2]
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onNext(FluxContextWrite.java:107) ~[reactor-core-3.6.2.jar!/:3.6.2]
+		at reactor.core.publisher.SinkManyEmitterProcessor.drain(SinkManyEmitterProcessor.java:476) ~[reactor-core-3.6.2.jar!/:3.6.2]
+		at reactor.core.publisher.SinkManyEmitterProcessor$EmitterInner.drainParent(SinkManyEmitterProcessor.java:620) ~[reactor-core-3.6.2.jar!/:3.6.2]
+		at reactor.core.publisher.FluxPublish$PubSubInner.request(FluxPublish.java:874) ~[reactor-core-3.6.2.jar!/:3.6.2]
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.request(FluxContextWrite.java:136) ~[reactor-core-3.6.2.jar!/:3.6.2]
+		at reactor.core.publisher.FluxConcatMapNoPrefetch$FluxConcatMapNoPrefetchSubscriber.request(FluxConcatMapNoPrefetch.java:337) ~[reactor-core-3.6.2.jar!/:3.6.2]
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.request(FluxContextWrite.java:136) ~[reactor-core-3.6.2.jar!/:3.6.2]
+		at reactor.core.publisher.Operators$DeferredSubscription.request(Operators.java:1743) ~[reactor-core-3.6.2.jar!/:3.6.2]
+		at reactor.core.publisher.FluxRetryWhen$RetryWhenMainSubscriber.onError(FluxRetryWhen.java:196) ~[reactor-core-3.6.2.jar!/:3.6.2]
+		at reactor.core.publisher.MonoCreate$DefaultMonoSink.error(MonoCreate.java:205) ~[reactor-core-3.6.2.jar!/:3.6.2]
+		at reactor.netty.http.client.HttpClientConnect$HttpObserver.onUncaughtException(HttpClientConnect.java:403) ~[reactor-netty-http-1.1.15.jar!/:1.1.15]
+		at reactor.netty.ReactorNetty$CompositeConnectionObserver.onUncaughtException(ReactorNetty.java:703) ~[reactor-netty-core-1.1.15.jar!/:1.1.15]
+		at reactor.netty.resources.DefaultPooledConnectionProvider$DisposableAcquire.onUncaughtException(DefaultPooledConnectionProvider.java:223) ~[reactor-netty-core-1.1.15.jar!/:1.1.15]
+		at reactor.netty.resources.DefaultPooledConnectionProvider$PooledConnection.onUncaughtException(DefaultPooledConnectionProvider.java:476) ~[reactor-netty-core-1.1.15.jar!/:1.1.15]
+		at reactor.netty.channel.FluxReceive.drainReceiver(FluxReceive.java:247) ~[reactor-netty-core-1.1.15.jar!/:1.1.15]
+		at reactor.netty.channel.FluxReceive.onInboundError(FluxReceive.java:468) ~[reactor-netty-core-1.1.15.jar!/:1.1.15]
+		at reactor.netty.channel.ChannelOperations.onInboundError(ChannelOperations.java:515) ~[reactor-netty-core-1.1.15.jar!/:1.1.15]
+		at reactor.netty.channel.ChannelOperationsHandler.exceptionCaught(ChannelOperationsHandler.java:145) ~[reactor-netty-core-1.1.15.jar!/:1.1.15]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeExceptionCaught(AbstractChannelHandlerContext.java:346) ~[netty-transport-4.1.105.Final.jar!/:4.1.105.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeExceptionCaught(AbstractChannelHandlerContext.java:325) ~[netty-transport-4.1.105.Final.jar!/:4.1.105.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.fireExceptionCaught(AbstractChannelHandlerContext.java:317) ~[netty-transport-4.1.105.Final.jar!/:4.1.105.Final]
+		at io.netty.handler.timeout.ReadTimeoutHandler.readTimedOut(ReadTimeoutHandler.java:98) ~[netty-handler-4.1.105.Final.jar!/:4.1.105.Final]
+		at io.netty.handler.timeout.ReadTimeoutHandler.channelIdle(ReadTimeoutHandler.java:90) ~[netty-handler-4.1.105.Final.jar!/:4.1.105.Final]
+		at io.netty.handler.timeout.IdleStateHandler$ReaderIdleTimeoutTask.run(IdleStateHandler.java:503) ~[netty-handler-4.1.105.Final.jar!/:4.1.105.Final]
+		at io.netty.handler.timeout.IdleStateHandler$AbstractIdleTask.run(IdleStateHandler.java:475) ~[netty-handler-4.1.105.Final.jar!/:4.1.105.Final]
+		at io.netty.util.concurrent.PromiseTask.runTask(PromiseTask.java:98) ~[netty-common-4.1.105.Final.jar!/:4.1.105.Final]
+		at io.netty.util.concurrent.ScheduledFutureTask.run(ScheduledFutureTask.java:153) ~[netty-common-4.1.105.Final.jar!/:4.1.105.Final]
+		at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:173) ~[netty-common-4.1.105.Final.jar!/:4.1.105.Final]
+		at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:166) ~[netty-common-4.1.105.Final.jar!/:4.1.105.Final]
+		at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:470) ~[netty-common-4.1.105.Final.jar!/:4.1.105.Final]
+		at io.netty.channel.epoll.EpollEventLoop.run(EpollEventLoop.java:413) ~[netty-transport-classes-epoll-4.1.105.Final.jar!/:4.1.105.Final]
+		at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997) ~[netty-common-4.1.105.Final.jar!/:4.1.105.Final]
+		at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.105.Final.jar!/:4.1.105.Final]
+		at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.105.Final.jar!/:4.1.105.Final]
+		at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+Caused by: io.netty.handler.timeout.ReadTimeoutException: null
+2024-11-06T07:47:35.076+03:00 ERROR 1 --- [torrentsearch] [or-http-epoll-2] a.w.r.e.AbstractErrorWebExceptionHandler : [208b217b-1691]  500 Server Error for HTTP GET "/api/v0/search/RUTRACKER/6173992/meta"
+java.lang.NullPointerException: Cannot invoke "me.home.torrentsearch.dto.MetaInfo$MetaIds.kinopoisk()" because the return value of "me.home.torrentsearch.dto.MetaInfo.ids()" is null
+	at me.home.torrentsearch.service.SearchService.getMetaImpl(SearchService.java:49) ~[!/:]
+	Suppressed: reactor.core.publisher.FluxOnAssembly$OnAssemblyException:
+Error has been observed at the following site(s):
+	*__checkpoint ⇢ Handler me.home.torrentsearch.controller.SearchController#meta(TrackerEnum, String) [DispatcherHandler]
+	*__checkpoint ⇢ HTTP GET "/api/v0/search/RUTRACKER/6173992/meta" [ExceptionHandlingWebHandler]
+Original Stack Trace:
+		at me.home.torrentsearch.service.SearchService.getMetaImpl(SearchService.java:49) ~[!/:]
+		at reactor.core.publisher.MonoFlatMap$FlatMapMain.onNext(MonoFlatMap.java:132) ~[reactor-core-3.6.2.jar!/:3.6.2]
+		at reactor.core.publisher.FluxHide$SuppressFuseableSubscriber.onNext(FluxHide.java:137) ~[reactor-core-3.6.2.jar!/:3.6.2]
+		at reactor.core.publisher.FluxOnErrorReturn$ReturnSubscriber.onError(FluxOnErrorReturn.java:199) ~[reactor-core-3.6.2.jar!/:3.6.2]
+		at reactor.core.publisher.MonoPeekTerminal$MonoTerminalPeekSubscriber.onError(MonoPeekTerminal.java:258) ~[reactor-core-3.6.2.jar!/:3.6.2]
+		at reactor.core.publisher.FluxMapFuseable$MapFuseableConditionalSubscriber.onError(FluxMapFuseable.java:340) ~[reactor-core-3.6.2.jar!/:3.6.2]
+		at reactor.core.publisher.MonoFlatMap$FlatMapMain.onError(MonoFlatMap.java:180) ~[reactor-core-3.6.2.jar!/:3.6.2]
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onError(FluxContextWrite.java:121) ~[reactor-core-3.6.2.jar!/:3.6.2]
+		at reactor.core.publisher.FluxDoFinally$DoFinallySubscriber.onError(FluxDoFinally.java:119) ~[reactor-core-3.6.2.jar!/:3.6.2]
+		at reactor.core.publisher.MonoPeekTerminal$MonoTerminalPeekSubscriber.onError(MonoPeekTerminal.java:258) ~[reactor-core-3.6.2.jar!/:3.6.2]
+		at reactor.core.publisher.FluxPeekFuseable$PeekConditionalSubscriber.onError(FluxPeekFuseable.java:903) ~[reactor-core-3.6.2.jar!/:3.6.2]
+		at reactor.core.publisher.Operators$MultiSubscriptionSubscriber.onError(Operators.java:2236) ~[reactor-core-3.6.2.jar!/:3.6.2]
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222) ~[reactor-core-3.6.2.jar!/:3.6.2]
+		at reactor.core.publisher.FluxMap$MapSubscriber.onError(FluxMap.java:134) ~[reactor-core-3.6.2.jar!/:3.6.2]
+		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:106) ~[reactor-core-3.6.2.jar!/:3.6.2]
+		at reactor.core.publisher.Operators.error(Operators.java:198) ~[reactor-core-3.6.2.jar!/:3.6.2]
+		at reactor.core.publisher.MonoErrorSupplied.subscribe(MonoErrorSupplied.java:56) ~[reactor-core-3.6.2.jar!/:3.6.2]
+		at reactor.core.publisher.Mono.subscribe(Mono.java:4512) ~[reactor-core-3.6.2.jar!/:3.6.2]
+		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:103) ~[reactor-core-3.6.2.jar!/:3.6.2]
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222) ~[reactor-core-3.6.2.jar!/:3.6.2]
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222) ~[reactor-core-3.6.2.jar!/:3.6.2]
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222) ~[reactor-core-3.6.2.jar!/:3.6.2]
+		at reactor.core.publisher.MonoNext$NextSubscriber.onError(MonoNext.java:93) ~[reactor-core-3.6.2.jar!/:3.6.2]
+		at reactor.core.publisher.MonoFlatMapMany$FlatMapManyMain.onError(MonoFlatMapMany.java:205) ~[reactor-core-3.6.2.jar!/:3.6.2]
+		at reactor.core.publisher.SerializedSubscriber.onError(SerializedSubscriber.java:124) ~[reactor-core-3.6.2.jar!/:3.6.2]
+		at reactor.core.publisher.FluxRetryWhen$RetryWhenMainSubscriber.whenError(FluxRetryWhen.java:229) ~[reactor-core-3.6.2.jar!/:3.6.2]
+		at reactor.core.publisher.FluxRetryWhen$RetryWhenOtherSubscriber.onError(FluxRetryWhen.java:279) ~[reactor-core-3.6.2.jar!/:3.6.2]
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onError(FluxContextWrite.java:121) ~[reactor-core-3.6.2.jar!/:3.6.2]
+		at reactor.core.publisher.FluxConcatMapNoPrefetch$FluxConcatMapNoPrefetchSubscriber.maybeOnError(FluxConcatMapNoPrefetch.java:327) ~[reactor-core-3.6.2.jar!/:3.6.2]
+		at reactor.core.publisher.FluxConcatMapNoPrefetch$FluxConcatMapNoPrefetchSubscriber.onNext(FluxConcatMapNoPrefetch.java:212) ~[reactor-core-3.6.2.jar!/:3.6.2]
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onNext(FluxContextWrite.java:107) ~[reactor-core-3.6.2.jar!/:3.6.2]
+		at reactor.core.publisher.SinkManyEmitterProcessor.drain(SinkManyEmitterProcessor.java:476) ~[reactor-core-3.6.2.jar!/:3.6.2]
+		at reactor.core.publisher.SinkManyEmitterProcessor$EmitterInner.drainParent(SinkManyEmitterProcessor.java:620) ~[reactor-core-3.6.2.jar!/:3.6.2]
+		at reactor.core.publisher.FluxPublish$PubSubInner.request(FluxPublish.java:874) ~[reactor-core-3.6.2.jar!/:3.6.2]
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.request(FluxContextWrite.java:136) ~[reactor-core-3.6.2.jar!/:3.6.2]
+		at reactor.core.publisher.FluxConcatMapNoPrefetch$FluxConcatMapNoPrefetchSubscriber.request(FluxConcatMapNoPrefetch.java:337) ~[reactor-core-3.6.2.jar!/:3.6.2]
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.request(FluxContextWrite.java:136) ~[reactor-core-3.6.2.jar!/:3.6.2]
+		at reactor.core.publisher.Operators$DeferredSubscription.request(Operators.java:1743) ~[reactor-core-3.6.2.jar!/:3.6.2]
+		at reactor.core.publisher.FluxRetryWhen$RetryWhenMainSubscriber.onError(FluxRetryWhen.java:196) ~[reactor-core-3.6.2.jar!/:3.6.2]
+		at reactor.core.publisher.MonoCreate$DefaultMonoSink.error(MonoCreate.java:205) ~[reactor-core-3.6.2.jar!/:3.6.2]
+		at reactor.netty.http.client.HttpClientConnect$HttpObserver.onUncaughtException(HttpClientConnect.java:403) ~[reactor-netty-http-1.1.15.jar!/:1.1.15]
+		at reactor.netty.ReactorNetty$CompositeConnectionObserver.onUncaughtException(ReactorNetty.java:703) ~[reactor-netty-core-1.1.15.jar!/:1.1.15]
+		at reactor.netty.resources.DefaultPooledConnectionProvider$DisposableAcquire.onUncaughtException(DefaultPooledConnectionProvider.java:223) ~[reactor-netty-core-1.1.15.jar!/:1.1.15]
+		at reactor.netty.resources.DefaultPooledConnectionProvider$PooledConnection.onUncaughtException(DefaultPooledConnectionProvider.java:476) ~[reactor-netty-core-1.1.15.jar!/:1.1.15]
+		at reactor.netty.channel.FluxReceive.drainReceiver(FluxReceive.java:247) ~[reactor-netty-core-1.1.15.jar!/:1.1.15]
+		at reactor.netty.channel.FluxReceive.onInboundError(FluxReceive.java:468) ~[reactor-netty-core-1.1.15.jar!/:1.1.15]
+		at reactor.netty.channel.ChannelOperations.onInboundError(ChannelOperations.java:515) ~[reactor-netty-core-1.1.15.jar!/:1.1.15]
+		at reactor.netty.channel.ChannelOperationsHandler.exceptionCaught(ChannelOperationsHandler.java:145) ~[reactor-netty-core-1.1.15.jar!/:1.1.15]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeExceptionCaught(AbstractChannelHandlerContext.java:346) ~[netty-transport-4.1.105.Final.jar!/:4.1.105.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeExceptionCaught(AbstractChannelHandlerContext.java:325) ~[netty-transport-4.1.105.Final.jar!/:4.1.105.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.fireExceptionCaught(AbstractChannelHandlerContext.java:317) ~[netty-transport-4.1.105.Final.jar!/:4.1.105.Final]
+		at io.netty.handler.timeout.ReadTimeoutHandler.readTimedOut(ReadTimeoutHandler.java:98) ~[netty-handler-4.1.105.Final.jar!/:4.1.105.Final]
+		at io.netty.handler.timeout.ReadTimeoutHandler.channelIdle(ReadTimeoutHandler.java:90) ~[netty-handler-4.1.105.Final.jar!/:4.1.105.Final]
+		at io.netty.handler.timeout.IdleStateHandler$ReaderIdleTimeoutTask.run(IdleStateHandler.java:503) ~[netty-handler-4.1.105.Final.jar!/:4.1.105.Final]
+		at io.netty.handler.timeout.IdleStateHandler$AbstractIdleTask.run(IdleStateHandler.java:475) ~[netty-handler-4.1.105.Final.jar!/:4.1.105.Final]
+		at io.netty.util.concurrent.PromiseTask.runTask(PromiseTask.java:98) ~[netty-common-4.1.105.Final.jar!/:4.1.105.Final]
+		at io.netty.util.concurrent.ScheduledFutureTask.run(ScheduledFutureTask.java:153) ~[netty-common-4.1.105.Final.jar!/:4.1.105.Final]
+		at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:173) ~[netty-common-4.1.105.Final.jar!/:4.1.105.Final]
+		at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:166) ~[netty-common-4.1.105.Final.jar!/:4.1.105.Final]
+		at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:470) ~[netty-common-4.1.105.Final.jar!/:4.1.105.Final]
+		at io.netty.channel.epoll.EpollEventLoop.run(EpollEventLoop.java:413) ~[netty-transport-classes-epoll-4.1.105.Final.jar!/:4.1.105.Final]
+		at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997) ~[netty-common-4.1.105.Final.jar!/:4.1.105.Final]
+		at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.105.Final.jar!/:4.1.105.Final]
+		at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.105.Final.jar!/:4.1.105.Final]
+		at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+2024-11-06T08:22:59.513+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-3] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-06T08:22:59.513+03:00 DEBUG 1 --- [torrentsearch] [Pool-worker-161] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-06T09:22:59.922+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-1] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-06T09:22:59.922+03:00 DEBUG 1 --- [torrentsearch] [Pool-worker-162] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-06T10:23:00.349+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-2] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-06T10:23:00.349+03:00 DEBUG 1 --- [torrentsearch] [Pool-worker-163] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-06T11:23:00.781+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-3] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-06T11:23:00.781+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-3] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test
+2024-11-06T11:26:23.378+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-2] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: https://kinopoiskapiunofficial.tech/images/posters/kp_small/448.jpg
+2024-11-06T11:26:23.379+03:00 DEBUG 1 --- [torrentsearch] [Pool-worker-165] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: https://kinopoiskapiunofficial.tech/images/posters/kp_small/448.jpg
+2024-11-06T12:23:01.120+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-4] me.home.torrentsearch.service.Tracker    : search in tracker RUTRACKER query: test
+2024-11-06T12:23:01.120+03:00 DEBUG 1 --- [torrentsearch] [or-http-epoll-4] me.home.torrentsearch.service.Tracker    : search in tracker KINOZAL query: test

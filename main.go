@@ -27,6 +27,7 @@ func main() {
 	burst := flag.Int64("b", -1, "generate large burst of data")
 	sleep := flag.Int64("s", 1000, "sleep time")
 	shuffle := flag.Bool("x", false, "shuffle data")
+	all := flag.Bool("a", false, "print all data and pause")
 	flag.Parse()
 
 	var data []string
@@ -51,8 +52,16 @@ func main() {
 		}()
 	}
 
-	for i := 0; ; i = (i + 1) % len(data) {
-		fmt.Fprintln(os.Stderr, data[i])
-		time.Sleep(time.Millisecond * time.Duration(*sleep))
+	if *all {
+		for _, line := range data {
+			fmt.Println(line)
+		}
+		time.Sleep(time.Hour)
+	} else {
+
+		for i := 0; ; i = (i + 1) % len(data) {
+			fmt.Fprintln(os.Stderr, data[i])
+			time.Sleep(time.Millisecond * time.Duration(*sleep))
+		}
 	}
 }
