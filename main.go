@@ -27,12 +27,18 @@ func main() {
 	burst := flag.Int64("b", -1, "generate large burst of data")
 	sleep := flag.Int64("s", 1000, "sleep time")
 	shuffle := flag.Bool("x", false, "shuffle data")
+	numbers := flag.Bool("n", false, "show number")
 	all := flag.Bool("a", false, "print all data and pause")
 	flag.Parse()
 
 	var data []string
 	if *random {
 		data = append(data, strings.Split(randomData, ". ")...)
+	} else if *numbers {
+		for i := 0; i < 10000; i++ {
+			data = append(data, fmt.Sprintf("line %d", i))
+		}
+
 	} else {
 		data = readData()
 	}
