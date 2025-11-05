@@ -115,10 +115,10 @@ func main() {
 	if *random {
 		data = append(data, strings.Split(randomData, ". ")...)
 	} else if *numbers {
-		for i := 0; i < 10000; i++ {
-			data = append(data, fmt.Sprintf("line %d", i))
+		data = make([]string, 10000)
+		for i := range data {
+			data[i] = fmt.Sprintf("line %d", i)
 		}
-
 	} else {
 		data = readData()
 	}
@@ -131,7 +131,7 @@ func main() {
 		go func() {
 			for {
 				time.Sleep(time.Millisecond * time.Duration(*burst))
-				for i := 0; i < 5_000; i++ {
+				for range 5_000 {
 					fmt.Fprintln(os.Stderr, data[rand.Intn(len(data))])
 				}
 			}
@@ -140,6 +140,7 @@ func main() {
 
 	if *all {
 		for _, line := range data {
+			time.Sleep(5 * time.Millisecond)
 			fmt.Println(line)
 		}
 		time.Sleep(time.Hour)
