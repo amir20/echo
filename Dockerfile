@@ -8,7 +8,7 @@ COPY *.go ./
 ARG TARGETOS TARGETARCH
 RUN GOOS=$TARGETOS GOARCH=$TARGETARCH CGO_ENABLED=0 go build -ldflags "-s -w"  -o echo
 
-FROM scratch
+FROM alpine:latest
 ENV PATH=/bin
 COPY --from=builder /build/echo /echo
 
