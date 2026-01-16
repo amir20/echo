@@ -84,12 +84,10 @@ func replay(speedFactor float64) {
 		if duration > 0 {
 			adjustedDuration := time.Duration(float64(duration) / speedFactor)
 			// Cap wait time at 10 seconds maximum
-			if adjustedDuration > 10*time.Second {
-				adjustedDuration = 10 * time.Second
-			}
+			adjustedDuration = min(adjustedDuration, 10*time.Second)
 			time.Sleep(adjustedDuration)
 		}
-		fmt.Fprintln(os.Stderr, entries[i].message)
+		fmt.Fprintf(os.Stderr, "(%d) %s\n", i, entries[i].message)
 	}
 }
 
