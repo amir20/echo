@@ -25,37 +25,87 @@ type LogEntry struct {
 	message   string
 }
 
-// parseTimestamp attempts to parse RFC3339 timestamp from the beginning of a line
+// parseTimestamp attempts to parse a timestamp from the beginning of a line.
 func parseTimestamp(line string) (time.Time, string, bool) {
-	// Try to find a timestamp at the beginning of the line
-	// Support common formats like RFC3339, RFC3339Nano
-	parts := strings.Fields(line)
-	if len(parts) == 0 {
+	fields := strings.Fields(line)
+	if len(fields) == 0 {
 		return time.Time{}, line, false
 	}
 
-	// Try parsing first field as timestamp
-	formats := []string{
-		time.RFC3339Nano,
-		time.RFC3339,
-		"2006-01-02T15:04:05.999999999Z07:00",
-		"2006-01-02T15:04:05Z07:00",
-		"2006-01-02 15:04:05.999999999 -0700 MST",
+	// Each layout is paired with the number of whitespace-separated tokens it
+	// spans. RFC3339 timestamps are a single token; "date time" formats (such
+	// as Python's logging output) span two.
+	candidates := []struct {
+		layout string
+		tokens int
+	}{
+		{time.RFC3339Nano, 1},
+		{time.RFC3339, 1},
+		{"2006-01-02 15:04:05.999999999", 2},
+		{"2006-01-02 15:04:05", 2},
 	}
 
-	for _, format := range formats {
-		if t, err := time.Parse(format, parts[0]); err == nil {
-			// Remove timestamp from message
-			message := strings.TrimSpace(strings.TrimPrefix(line, parts[0]))
-			return t, message, true
+	for _, c := range candidates {
+		if len(fields) < c.tokens {
+			continue
 		}
+		prefix := strings.Join(fields[:c.tokens], " ")
+		// Python's logging module uses a comma as the fractional-second
+		// separator (e.g. "11:48:21,235"); Go's time.Parse only understands a
+		// period, so normalize it before parsing.
+		normalized := strings.Replace(prefix, ",", ".", 1)
+		t, err := time.Parse(c.layout, normalized)
+		if err != nil {
+			continue
+		}
+		// Strip the consumed tokens from the original line to get the message.
+		rest := line
+		for _, tok := range fields[:c.tokens] {
+			rest = strings.TrimPrefix(strings.TrimSpace(rest), tok)
+		}
+		return t, strings.TrimSpace(rest), true
 	}
 
 	return time.Time{}, line, false
 }
 
-// replay reads timestamped logs from stdin and replays them with original timing
-func replay(speedFactor float64) {
+// isNeedle reports whether the count-th haystack line (1-based) should be the
+// rare NEEDLE marker rather than noise. every<=0 disables needles entirely.
+func isNeedle(count, every int) bool {
+	return every > 0 && count%every == 0
+}
+
+// haystack floods noise lines at a target rate, injecting a rare unique NEEDLE
+// line every `every` lines. This reproduces the needle-in-a-haystack search
+// case: a search for "NEEDLE" finds only sparse matches (or none, for an absent
+// term) and forces Dozzle to walk the whole log backward, which is slow.
+func haystack(rate, every int) {
+	noise := strings.Split(randomData, ". ")
+	// emit in 10ms ticks so the rate stays smooth instead of one big burst
+	perTick := rate / 100
+	if perTick < 1 {
+		perTick = 1
+	}
+	ticker := time.NewTicker(10 * time.Millisecond)
+	defer ticker.Stop()
+	count := 0
+	for range ticker.C {
+		for range perTick {
+			count++
+			if isNeedle(count, every) {
+				fmt.Fprintf(os.Stderr, "NEEDLE rare-event-%d at line %d\n", count/every, count)
+			} else {
+				fmt.Fprintln(os.Stderr, noise[rand.Intn(len(noise))])
+			}
+		}
+	}
+}
+
+// replay reads timestamped logs from stdin and replays them with original timing.
+// When showNumbers is true each replayed line is prefixed with its index; it is
+// off by default so the output stays byte-for-byte identical to the input (and
+// therefore still valid JSON when the messages are JSON).
+func replay(speedFactor float64, showNumbers bool) {
 	scanner := bufio.NewScanner(os.Stdin)
 	var entries []LogEntry
 
@@ -87,7 +137,11 @@ func replay(speedFactor float64) {
 			adjustedDuration = min(adjustedDuration, 3*time.Second)
 			time.Sleep(adjustedDuration)
 		}
-		fmt.Fprintf(os.Stderr, "(%d) %s\n", i, entries[i].message)
+		if showNumbers {
+			fmt.Fprintf(os.Stderr, "(%d) %s\n", i, entries[i].message)
+		} else {
+			fmt.Fprintln(os.Stderr, entries[i].message)
+		}
 	}
 
 	time.Sleep(100 * time.Minute)
@@ -100,14 +154,23 @@ func main() {
 	burst := flag.Int64("b", -1, "generate large burst of data")
 	sleep := flag.Int64("s", 1000, "sleep time")
 	shuffle := flag.Bool("x", false, "shuffle data")
-	numbers := flag.Bool("n", false, "show number")
+	numbers := flag.Bool("n", false, "show line numbers (also prefixes replayed lines in -p mode)")
 	all := flag.Bool("a", false, "print all data and pause")
 	playback := flag.Float64("p", 0, "replay logs with original timing (speed factor: 1=normal, 10=10x faster, 0=disabled)")
+	hay := flag.Bool("haystack", false, "flood noise logs with a rare NEEDLE line (needle-in-a-haystack search test)")
+	rate := flag.Int("rate", 20000, "with -haystack, noise lines per second")
+	every := flag.Int("every", 50000, "with -haystack, emit one NEEDLE line every N lines")
 	flag.Parse()
 
 	// Handle replay mode
 	if *playback > 0 {
-		replay(*playback)
+		replay(*playback, *numbers)
+		return
+	}
+
+	// Handle needle-in-a-haystack mode
+	if *hay {
+		haystack(*rate, *every)
 		return
 	}
 
